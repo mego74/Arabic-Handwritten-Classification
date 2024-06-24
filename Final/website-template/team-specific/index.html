@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    table, th, td {
+        border: 1px solid #ddd;
+    }
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    img {
+        max-width: 300px;
+        height: auto;
+    }
+</style>
+
+  <title>Arabic Language Classification</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="../home.html">Advanced Machine Learning</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../home.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5">Arabic Language Classification</h1>
+        <ul class="list-unstyled">
+          <li>Ahmed Jaheen</li>
+          <li>Aedan Ounsamone</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Problem Statement</h2>
+		<p>
+      The advancement in text recognition on scanned images has opened up numerous possi-
+bilities, from searching texts in extensive documents to automating postal sorting and edit-
+ing printed documents. Arabic handwriting recognition, given its unique challenges, has
+garnered attention later than other scripts, leading to diverse methodologies tailored for dif-
+ferent image types. On the other hand, recognizing Arabic characters and digits is pivotal
+due to the script's cursive nature and shape variations, crucial for digital archiving, educa-
+tional tools, and aiding the visually impaired. Traditional machine learning and basic neural
+networks often fall short in capturing the script's complexity, highlighting the need for more
+approaches. Our project aims to address these challenges by evaluating existing models on datasets and proposing enhancements to improve accuracy and efficiency in Arabic text recognition systems. 
+		</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Dataset</h2>
+
+        <h3>AHAWP Dataset</h3>
+
+        <p><strong>Dataset Description:</strong> The dataset comprises 65 distinct Arabic characters, capturing their variations at the
+          beginning, middle, end, and in isolation, alongside 10 unique Arabic words that collectively
+          include all the characters, and 3 distinct paragraphs. It was anonymously sourced from
+          82 contributors, with each being instructed to scribe every character and word 10 times.
+          Contributors are anonymously yet uniquely identiﬁed by a userid, which is associated with
+          their contributed characters, words, and paragraphs. Altogether, the dataset features 53,199
+          images of characters, 8,144 images of words, and 241 images of paragraphs.</p>
+    
+        <p><strong>Dataset Size:</strong> Around 900 MBs.</p>
+    
+        <p><strong>Dataset Link:</strong> <a href="https://drive.google.com/drive/folders/1u3VO8-LvO8agvfSPitbt7kMdrRArngza?usp=sharing" target="_blank">Google Drive Download</a></p>
+        <p><strong>Dataset Images:</strong>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources-images/a.png" class="img-fluid text-center">
+          <img src="resources-images/b.png" class="img-fluid text-center">
+
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Input/Output Examples</h2>
+        <table>
+          <thead>
+              <tr>
+                  <th>Image</th>
+                  <th>Label</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td><img src="resources-images/demo1.jpg" alt="Image 1"></td>
+                  <td>Tah End</td>
+              </tr>
+              <tr>
+                  <td><img src="resources-images/demo2.jpg" alt="Image 2"></td>
+                  <td>Ain Regular</td>
+              </tr>
+              <tr>
+                <td><img src="resources-images/demo3.jpg" alt="Image 3"></td>
+                <td>Saad Begin</td>
+             </tr>
+             <tr>
+              <td><img src="resources-images/demo4.jpg" alt="Image 4"></td>
+              <td>Kaf Regular</td>
+             </tr>
+             <tr>
+              <td><img src="resources-images/demo5.jpg" alt="Image 5"></td>
+              <td>Jeem Begin</td>
+             </tr>
+          </tbody>
+      </table>
+  
+      </div>
+
+
+	
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">State of the art</h2>
+
+        <p>
+          The table below shows the state of the art results.
+        </p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources-images/c.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+     
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Orignial Model from Literature</h2>
+
+        <p>
+            <strong> Introduction to the Model:</strong>
+
+        </p>
+        <p>
+          The GoogLeNet-based Model for Arabic Handwritten Character Recognition was developed in response to the unique challenges presented by Arabic script's cursive nature and the diversity of its character forms. Researchers recognized that traditional character recognition techniques such as Optical Character Recognition (OCR) systems, while effective under controlled conditions, struggled with the variability and complexity found in handwritten texts. Moreover, simpler convolutional neural network (CNN) architectures often failed to capture the nuances of Arabic characters, which vary significantly not just in shape but in their contextual forms (isolated, initial, medial, and final).
+          It was introduced as the best performance model in this paper: <a href="https://www.researchgate.net/publication/313891953_Arabic_Handwritten_Characters_Recognition_using_Convolutional_Neural_Network" target="_blank">Read the paper</a>
+        </p>
+        <p>
+          <strong>Architecture: </strong>
+          <p>
+            The architecture of the GoogLeNet-based model for Arabic handwritten character recognition has been specifically tailored to address the complexities associated with Arabic script, which is inherently cursive and exhibits a wide variation in character forms. This adaptation begins with preprocessing the input images by resizing them to a consistent 224x224 pixel format and converting them to grayscale to focus on textural and shape features rather than color. The core of the model is based on modified inception modules, a hallmark of GoogLeNet architecture, which are designed to capture details from different scales of the image simultaneously. These modules incorporate convolutional layers with varying filter sizes—1x1, 3x3, and 5x5—alongside a max-pooling path, allowing the network to process diverse aspects of the handwriting at once.
+
+            To suit the specific challenges posed by Arabic handwriting, adjustments are made to the network's depth to avoid overfitting, particularly important due to the ornate nature of Arabic characters and often limited training data. Dropout layers are strategically placed following the fully connected layers to further mitigate overfitting by randomly omitting units during training, thus simplifying the model complexity. The network culminates in a fully connected layer tailored to the 65 distinct Arabic character forms, followed by a softmax layer that classifies each character.
+            
+            The training of this network utilizes a combination of backpropagation and stochastic gradient descent, focusing on minimizing a cross-entropy loss function that measures the discrepancy between predicted probabilities and actual label distributions. L2 regularization is also employed within the loss function to constrain the magnitude of model parameters, promoting a model that generalizes well to new, unseen data. This carefully crafted architecture ensures that the GoogLeNet-based model not only learns the detailed nuances of Arabic handwriting but also achieves high accuracy rates in recognizing and classifying these characters effectively.            
+          </p>
+        </p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources-images/d.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Proposed Updates</h2>
+
+        <p>
+			Add all the model updates you made here, need as many images as you wish
+		</p>
+
+		<h5 class="mt-5">Update #1: Adding L2 regularization and dropout regularization to the model.</h5>
+		<p>
+      As the origianl model did not mention the usage of any reg techniques and as the code of the baseline model did not include any, we thought of using regularization to ensure that the model is not overfitting.
+		</p>
+		
+
+		<h5 class="mt-5">Update #2: Application of data augmentation on the AHAWP dataset</h5>
+
+		<p>
+			Since the data in the dataset is inbalanced, we tried using data augmentation and oversampling to solve this problem.
+		</p>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources-images/e.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+    
+
+    <h5 class="mt-5">Update #3: Try different noisy labels handling mechanisms to see its effect on the model, and apply the best mechanism.</h5>
+
+		<p>
+      We will try using Label Smoothing, Focal Loss, Joint Negative and Positive Learning (JNPL). We will do so to try to improve the performance of the model.
+    </p>
+		<br/> <!-- Empty Line before the image -->
+    	<br/> <!-- Empty Line after the image -->
+      
+
+    <h5 class="mt-5">Update #4: Trying different attention mechanisms to test its affect on the model performance.</h5>
+
+		<p>
+      We will try using grid wise attention, self attention, region based attention, and squeeze and excitation blocks. We will do so to try to improve the performance of the model. 
+    </p>
+      
+
+    <h5 class="mt-5">Update #5: Trying to use different Vision Transfer Learning architecures instead of the architecture of the normal CNN network we have.</h5>
+
+		<p>
+      We will try to use the original vision transformer base patch 16 and Swin Transformer base Patch 4, Window 7. Swin Transformer proposes hierarchical transformers where the representation is computed with shifted windows, leading to better efficiency. It merges the benefits of both CNNs and Transformers by maintaining a local window-based self-attention mechanism.
+
+    </p>
+    <br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources-images/f.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      
+      <h5 class="mt-5">Update #6: rying to use OCR Techniques to validate whole words using YOLO.</h5>
+
+      <p>
+        In this trial, we attempted to use open-source Python library character_segmentation to break paragraphs and words into characters for the character predictor model.
+        Challenges faced: 
+        Spaces between characters varied depending on handwriting, which made segmentation difficult
+        Any ink on the image caused inaccuracies for letters that have points on them (very common in arabic)
+        Resolution of the image made some letters seem different (more wide for instance). You can see the Segmentation of the letter 'alef' in a bad resolution image.
+
+              </p>
+      <br/> <!-- Empty Line before the image -->
+        <div class="img-container" align="center"> <!-- Block parent element -->
+            <img src="resources-images/k.png" class="img-fluid text-center">
+        </div>
+        <br/> <!-- Empty Line after the image -->
+
+      <h5 class="mt-5">Update #7: Usage of ensemble classifiers.</h5>
+
+      <p>
+        Having multiple classifiers trained on different data distribuctions can help in improving the accuracy of the resulting model as it will be the result of 3 classifiers not a single one. As a result, we will consider using ensemble classifiers to enhance the final performance.
+      </p>
+      <br/> <!-- Empty Line before the image -->
+        <div class="img-container" align="center"> <!-- Block parent element -->
+            <img src="resources-images/T.png" class="img-fluid text-center">
+        </div>
+        <br/> <!-- Empty Line after the image -->
+
+    
+    </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Results</h2>
+
+        <p>Results of deploying the baseline model on the AHAWP dataset.</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources-images/1.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+
+      
+      <p>Results after usage of data augmentation on AHAWP dataset.</p>
+
+      <br/> <!-- Empty Line before the image -->
+        <div class="img-container" align="center"> <!-- Block parent element -->
+            <img src="resources-images/3.png" class="img-fluid text-center">
+        </div>
+        <br/> <!-- Empty Line after the image -->
+
+        <p>Results of deploying the baseline model on the AHAWP dataset with L2 and Dropout regularizers.</p>
+
+      <br/> <!-- Empty Line before the image -->
+        <div class="img-container" align="center"> <!-- Block parent element -->
+            <img src="resources-images/2.png" class="img-fluid text-center">
+        </div>
+        <br/> <!-- Empty Line after the image -->
+        
+        <p>Results after usage of Label Smoothing.</p>
+
+      <br/> <!-- Empty Line before the image -->
+        <div class="img-container" align="center"> <!-- Block parent element -->
+            <img src="resources-images/4.png" class="img-fluid text-center">
+        </div>
+        <br/> <!-- Empty Line after the image -->
+
+        <p>Results after usage of Focal Loss.</p>
+
+        <br/> <!-- Empty Line before the image -->
+          <div class="img-container" align="center"> <!-- Block parent element -->
+              <img src="resources-images/5.png" class="img-fluid text-center">
+          </div>
+          <br/> <!-- Empty Line after the image -->
+          
+          <p>Results after usage of JNPL.</p>
+
+          <br/> <!-- Empty Line before the image -->
+            <div class="img-container" align="center"> <!-- Block parent element -->
+                <img src="resources-images/6.png" class="img-fluid text-center">
+            </div>
+            <br/> <!-- Empty Line after the image -->
+
+        <p>Results after usage of Region based attention.</p>
+
+      <br/> <!-- Empty Line before the image -->
+        <div class="img-container" align="center"> <!-- Block parent element -->
+            <img src="resources-images/7.png" class="img-fluid text-center">
+        </div>
+        <br/> <!-- Empty Line after the image -->
+
+        <p>Results after usage of Self attention.</p>
+
+        <br/> <!-- Empty Line before the image -->
+          <div class="img-container" align="center"> <!-- Block parent element -->
+              <img src="resources-images/8.png" class="img-fluid text-center">
+          </div>
+          <br/> <!-- Empty Line after the image -->
+        
+        <p>Results after usage of Grid Wise Attention.</p>
+
+      <br/> <!-- Empty Line before the image -->
+        <div class="img-container" align="center"> <!-- Block parent element -->
+            <img src="resources-images/9.png" class="img-fluid text-center">
+        </div>
+        <br/> <!-- Empty Line after the image -->
+
+        <p>Results after usage of squeeze and excitation blocks.</p>
+
+      <br/> <!-- Empty Line before the image -->
+        <div class="img-container" align="center"> <!-- Block parent element -->
+            <img src="resources-images/10.png" class="img-fluid text-center">
+        </div>
+        <br/> <!-- Empty Line after the image -->
+
+        <p>Results after usage of Original Vision Transformer Base Patch 16.</p>
+
+        <br/> <!-- Empty Line before the image -->
+          <div class="img-container" align="center"> <!-- Block parent element -->
+              <img src="resources-images/11.png" class="img-fluid text-center">
+          </div>
+          <br/> <!-- Empty Line after the image -->
+
+          <p>Results after usage of Swin Transformer Base Patch 4, Window 7.</p>
+
+          <br/> <!-- Empty Line before the image -->
+            <div class="img-container" align="center"> <!-- Block parent element -->
+                <img src="resources-images/12.png" class="img-fluid text-center">
+            </div>
+            <br/> <!-- Empty Line after the image -->
+
+            <p>Results after usage of ensemble classifiers (Final Model).</p>
+
+            <br/> <!-- Empty Line before the image -->
+              <div class="img-container" align="center"> <!-- Block parent element -->
+                  <img src="resources-images/13.png" class="img-fluid text-center">
+              </div>
+              <br/> <!-- Empty Line after the image -->
+
+      </div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Technical report</h2>
+
+        <p>
+			Here you will detail the details related to training, for example:
+		</p>
+
+	 	<ul>
+		  <li>PyTorch</li>
+		  <li>Ran on the GPU of the machine learning lab using jupyter notebook</li>
+		  <li>Training took around 14 hours</li>
+		  <li>Required 1500 epochs for training</li>
+		  <li>Each epoch took about 4 minutes.</li>
+		</ul> 
+      </div>
+    </div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">Conclusion</h2>
+
+	    <p>
+			Conclusion and future work (including lessons learned and interesting findings)
+		</p>
+    Conclusion:
+    <ul>
+		  <li>Deep Learning is mainly about trial and error.</li>
+		  <li>Detecting a whole “Arabic” word or paragraph is very challenging as Arabic is RTL.</li>
+		</ul> 
+    Future Work:
+    <ul>
+		  <li>Trying the same problem approach but on Arabic Paragraphs.</li>
+		  <li>Try to use RNNs.</li>
+		</ul> 
+    Lessons Learned:
+    <ul>
+		  <li> Attention mechanisms.</li>
+		  <li> Noisy Label Handling mechanisms.</li>
+      <li> Transfer Learning.</li>
+      <li> Vision Transformers.</li>
+      <li> YOLO.</li>
+      <li> Always make checkpoints.</li>
+		</ul> 
+
+
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">References</h2>
+
+	    <p>
+	    	List all references here, the following are only examples
+	    </p>
+
+		<ol>
+		  <li>CSDL|IEEEComputerSociety.Www.computer.org,www.computer.org/csdl/proceedings-article/icdar/2003/196020890/12OmNyqiaUF.</li>
+		  <li>M. A. Almisreb, A. A. Jamel and S. A. R. Al-Haddad, "Arabic Handwritten Recognition Using Deep Learning: A Survey," in IEEE Access, vol. 9, pp. 15640-15655, 2021, doi: 10.1109/ACCESS.2021.3051732.</li>
+		  <li>Computer Vision with TensorFlow www.tensorﬂow.org/tutorials/images/. | TensorFlow Core. TensorFlow.</li>
+      <li>M. Elhoseny, X. Yuan, Z. Yu, S. Mao, K. K. Loo, and A. K. Sangaiah, "Arabic Handwritten Recognition Using Deep Learning: A Survey," 2021. [Online]. Available: https://www.researchgate.net/publication/358068388_Arabic_Handwritten_Recognition _Using_Deep_Learning_A_Survey.</li>
+      <li>A.El-Sawy,M.Loey,andH.EL-Bakry,"ArabicHandwrittenRecognitionUsingDeepLearning:ASurvey,"2022.Available:https://www.researchgate.net/publication/358068388_Arabic_Handwritten_Recognition_Using_Deep_Learning_A_Survey.</li>
+		  <li>S. S., "Complete Architectural Details of all EﬃcientNet Models," Towards Data Science, https://towardsdatascience.com/complete-architectural-details-of-all- eﬃcientnet-models-5fd5b736142</li>
+		  <li>OShea, K., & Nash, R. (2017). An Introduction to Convolutional Neural Net- works. Towards Data Science. Available at: https://towardsdatascience.com/deep- convolutional-neural-networks-ccf96f830178</li>
+		  <li>Blurredmachine. (2020, July 28). VGGNet-16 architecture: A complete guide. Kaggle. https://www.kaggle.com/code/blurredmachine/vggnet-16-architecture-a-complete- guide</li>
+
+		</ol> 
+	  </div>
+	</div>
+
+  </div>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.slim.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
